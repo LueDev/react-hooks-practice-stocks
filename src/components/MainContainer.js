@@ -3,16 +3,25 @@ import StockContainer from "./StockContainer";
 import PortfolioContainer from "./PortfolioContainer";
 import SearchBar from "./SearchBar";
 
-function MainContainer() {
+function MainContainer({brokerStocks, userStocks, setUserStocks, searchParams, setSearchParams}) {
+  
   return (
     <div>
-      <SearchBar />
+      <SearchBar searchParams={searchParams} setSearchParams={setSearchParams}/>
       <div className="row">
         <div className="col-8">
-          <StockContainer />
+          <StockContainer 
+          brokerStocks={brokerStocks} 
+          userStocks={userStocks} 
+          setUserStocks={setUserStocks}
+          searchParams={searchParams}
+          />
         </div>
         <div className="col-4">
-          <PortfolioContainer />
+          <PortfolioContainer 
+          userStocks={userStocks} 
+          setUserStocks={setUserStocks}
+          />
         </div>
       </div>
     </div>
